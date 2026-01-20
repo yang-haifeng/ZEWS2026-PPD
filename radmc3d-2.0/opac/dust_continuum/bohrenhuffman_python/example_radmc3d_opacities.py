@@ -3,7 +3,7 @@ import numpy as np
 from matplotlib import cm
 import matplotlib.pyplot as plt
 
-agraincm  = 10 * 1e-4     # Grain size in cm
+agraincm  = 1000 * 1e-4     # Grain size in cm
 logawidth = 0.05          # Smear out the grain size by 5% in both directions
 na        = 20            # Use 20 grain size samples
 chop      = 5.            # Remove forward scattering within an angle of 5 degrees
@@ -16,7 +16,8 @@ ntheta    = 181           # Number of scattering angle sampling points
 #
 # Set up a wavelength grid upon which we want to compute the opacities
 #
-lamcm     = 10.0**np.linspace(-1, np.log10(870), 50)*1e-4
+#lamcm     = 10.0**np.linspace(-1, np.log10(8000), 50)*1e-4
+lamcm     = 10.0**np.linspace(np.log10(500), np.log10(8000), 50)*1e-4 # for large grains.
 
 #
 # Set up an angular grid for which we want to compute the scattering matrix Z

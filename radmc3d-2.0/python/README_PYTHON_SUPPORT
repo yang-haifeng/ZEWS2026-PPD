@@ -1,0 +1,33 @@
+The core of the RADMC-3D package is written in Fortran-90. But all the
+interaction and operation of RADMC-3D is done through Python. Essentially
+you will use Python scripts to create a set of input files for RADMC-3D.
+Then you will run the RADMC-3D executable (called 'radmc3d'). This will
+create a set of output files. You will use Python scripts to read these
+output files and analyze and plot the results.
+
+There are two main ways to interact with RADMC-3D through Python:
+
+ - In the ../examples/ directory you find basic setups for simple models.  Each
+   directory contains one or more python scripts to set the model up
+   (i.e. create the input files for the models). These example scripts are kept
+   as simple as possible, so that it becomes clear what RADMC-3D is really
+   doing.
+
+ - In the ./radmc3dPy/ directory you find a package, developed by Dr. Attila
+   Juhasz between 2011 and 2018, which has a large number of functions and
+   methods to read RADMC-3D data, process them, and make plots of them.
+   From 2020 onward (and starting with version 2.0 of RADMC-3D) it will
+   be maintained by Cornelis Dullemond. The radmc3dPy package has its
+   own documentation, independent of the main RADMC-3D documentation.
+
+In addition, in the ./radmc3d_tools/ directory you can find some additional
+tools that might, or might not, be useful for you.
+
+Furthermore, the ./radmc3d_tools/ directory contains the following two
+simple libraries that you could use as an alternative to radmc3dPy,
+mostly for educational purposes:
+
+ - simpleread.py: A set of bare-bones reading functions for RADMC-3D.
+ - simpleplot.py: A set of routines for plotting that might be useful.
+
+2020.08.22

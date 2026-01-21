@@ -153,5 +153,6 @@ with open('dustopac.inp','w+') as f:
 #
 with open('radmc3d.inp','w+') as f:
     f.write('nphot = %d\n'%(nphot))
+    f.write('nphot_scat = %d\n'%(nphot))
     f.write('scattering_mode_max = 5\n')
 

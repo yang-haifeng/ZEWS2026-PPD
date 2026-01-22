@@ -41,7 +41,8 @@ for c, fv, fm in zip(constants, f_vol, f_mass):
 diel_const = op.diel_mixed(constants, f_vol, rule="Bruggeman")
 
 if porosity > 0:
-    diel_const = diel_mixed([diel_vacuum(), diel_const], [porosity, (1 - porosity)], rule='Maxwell-Garnett')
+    diel = diel_const.get_normal_object()
+    diel_const = op.diel_mixed([op.diel_vacuum(), diel_const], [porosity, (1 - porosity)], rule='Maxwell-Garnett')
     rho_s *= 1 - porosity
 
 diel = diel_const.get_normal_object()

@@ -74,7 +74,9 @@ flag = rr > r_snowline
 rhod1[flag] = 0.0
 rhod2[~flag] = 0.0
 
-Td       = 30.*np.ones_like(rr)
+T0 = 200 # K
+Td = 200 * (rr/au)**-0.5
+#Td       = 30.*np.ones_like(rr)
 #
 # Write the wavelength_micron.inp file
 #

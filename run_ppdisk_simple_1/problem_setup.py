@@ -21,14 +21,14 @@ nphot    = 1000000
 nr       = 32
 ntheta   = 32
 nphi     = 1
-rin      = 10*au
-rout     = 100*au
+rin      = 1*au
+rout     = 300*au
 #thetaup  = np.pi*0.5 - 0.7e0
 dtheta   = 0.7e0
 #
 # Disk parameters
 #
-sigmag0  = 1e1               # Sigma gas at 1 AU
+sigmag0  = 1e3               # Sigma gas at 1 AU
 sigmad0  = sigmag0 * 0.01    # Sigma dust at 1 AU
 plsig    = -1.0e0            # Powerlaw of the surface density
 hr0      = 0.05              # H_p/r at 1 AU
@@ -67,7 +67,8 @@ hhr      = hr0 * (rr/au)**plh
 hh       = hhr * rr
 rhod     = ( sigmad / (np.sqrt(2.e0*np.pi)*hh) ) * np.exp(-(zr**2/hhr**2)/2.e0)
 
-Td       = 30.*np.ones_like(rr)
+#Td       = 30.*np.ones_like(rr)
+Td       = 200.*(rr/au)**-0.5
 #
 # Write the wavelength_micron.inp file
 #
@@ -155,4 +156,5 @@ with open('radmc3d.inp','w+') as f:
     f.write('nphot = %d\n'%(nphot))
     f.write('nphot_scat = %d\n'%(nphot))
     f.write('scattering_mode_max = 1\n')
+    f.write('setthreads = 8')
 
